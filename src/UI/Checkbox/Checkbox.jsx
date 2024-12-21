@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import './Checkbox.scss'
 
-function Checkbox({moveToDone, CssClasses}) {
-    moveToDone();
+function Checkbox({switchDone, moveToDone, id, CssClasses, status}) {
     let classes = ['checkbox-container', CssClasses];
     let classesString = classes.join(' ');
 
-    let [checked, setChecked] = useState(false);
+    let [checked, setChecked] = useState(status === true ? true : false);
 
-    function toggleCheckbox() {
+    function toggleCheckbox(e) {
         setChecked(() => {
             return checked === false ? true : false;
         });
+        switchDone(id, status);
     }
 
     return (
