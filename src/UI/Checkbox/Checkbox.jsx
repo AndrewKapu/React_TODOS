@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Checkbox.scss'
 
-function Checkbox({switchDone, moveToDone, id, CssClasses, status}) {
+function Checkbox({switchDone, id, CssClasses, status}) {
     let classes = ['checkbox-container', CssClasses];
     let classesString = classes.join(' ');
 

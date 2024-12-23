@@ -1,0 +1,29 @@
+.AddItemForm-wrapper {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.AddItemForm {
+    display: flex;
+    flex-direction: column;
+
+    &__heading {
+        margin-bottom: 15px;
+    }
+
+    &__input {
+        max-width: 400px;
+        padding: 15px;
+
+    }
+
+    &__label {}
+
+    &__desc {
+        height: 100px;
+    }
+
+    &__Btn {
+        margin-top: 10px;
+    }
+}

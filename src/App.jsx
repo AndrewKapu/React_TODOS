@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './App.scss';
 import ToDoItem from "./components/ToDoItem/ToDoItem";
 import Container from "./components/Container/Container";
+import AddItemForm from "./components/AddItemForm/AddItemForm";
 
 function App() {
     let tasks = [
@@ -52,20 +53,36 @@ function App() {
         }
     }
 
+    function addTask(name,  desc) {
+        let newTask = {id: 3, key: Date.now() % 100, name: name, desc: desc, done: false};
+        setUnDone([...unDone, newTask]);
+    }
+
+    function deleteTask(id, status) {
+        if (!status) {
+            unDone = unDone.filter((elem) => id !== elem.id);
+            setUnDone([...unDone]);
+        } else {
+            done = done.filter((elem) => id !== elem.id);
+            setDone([...done]);
+        }
+    }
+
 
     return (
         <div className="App">
             <Container>
+                <AddItemForm addTask={addTask} />
                 <div className="todo-tasks">
                     <h2 className="">Задачи к выполнению</h2>
                     {unDone.map((task) => {
-                        return <ToDoItem switchDone={switchDone} task={task} key={task.key} id={task.id} status={task.done} />
+                        return <ToDoItem switchDone={switchDone} deleteTask={deleteTask} task={task} key={task.key} id={task.id} status={task.done} />
                     })}
                 </div>
                 <div className="done-tasks">
                     <h2 className="">Выполненные задачи</h2>
                     {done.map((task) => {
-                        return <ToDoItem switchDone={switchDone} task={task} key={Date.now() % 100 + task.id} id={task.id} status={task.done} />
+                        return <ToDoItem switchDone={switchDone} deleteTask={deleteTask} task={task} key={task.key} id={task.id} status={task.done} />
                     })}
                 </div>
             </Container>

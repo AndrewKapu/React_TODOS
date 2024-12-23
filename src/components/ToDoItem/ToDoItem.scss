@@ -17,4 +17,12 @@
 
 
     &____description {}
+
+    &__Btn {
+
+        &:hover {
+            background-color: red;
+            color: white;
+        }
+    }
 }

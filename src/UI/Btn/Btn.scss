@@ -1,0 +1,13 @@
+.Btn {
+    cursor: pointer;
+    max-width: 100px;
+    background-color: white;
+    border: 1px solid green;
+    border-radius: 3px;
+    transition: .4s;
+
+    &:hover {
+        background-color: green;
+        color: white;
+    }
+}
