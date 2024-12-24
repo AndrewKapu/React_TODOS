@@ -83,13 +83,13 @@ function App() {
             <Container>
                 <AddItemForm addTask={addTask} />
                 <div className="todo-tasks">
-                    <h2 className="">Задачи к выполнению</h2>
+                    <h2 className="">Задачи к выполнению:</h2>
                     {checkAnyTasks(unDone) ? unDone.map((task) => {
                         return <ToDoItem switchDone={switchDone} deleteTask={deleteTask} task={task} key={task.key} id={task.id} status={task.done} />
                     }) : <h2>Нет задач для выполнения</h2>}
                 </div>
                 <div className="done-tasks">
-                    <h2 className="">Выполненные задачи</h2>
+                    <h2 className="">Выполненные задачи:</h2>
                     {checkAnyTasks(done) ? done.map((task) => {
                         return <ToDoItem switchDone={switchDone} deleteTask={deleteTask} task={task} key={task.key} id={task.id} status={task.done} />
                     }) : <h2>Нет выполненных задач</h2>}

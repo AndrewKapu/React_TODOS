@@ -18,6 +18,8 @@ function AddItemForm({addTask, deleteTask}) {
 
     function forwardTask() {
         addTask(name, desc);
+        setName('');
+        setDesc('');
     }
 
     let btnClasses = ['Btn', 'AddItemForm__Btn'].join(' ');
