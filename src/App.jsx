@@ -53,8 +53,8 @@ function App() {
         }
     }
 
-    function addTask(name,  desc) {
-        let newTask = {id: 3, key: Date.now() % 100, name: name, desc: desc, done: false};
+    function addTask(name, desc) {
+        let newTask = { id: 3, key: Date.now() % 100, name: name, desc: desc, done: false };
         setUnDone([...unDone, newTask]);
     }
 
@@ -68,6 +68,15 @@ function App() {
         }
     }
 
+    /**
+     * Function for checking if there are any tasks left in done or unDone arrays.
+     * @param {[]} taskList Array with task
+     * @returns {boolean} true if there's at least one task, false if not
+     */
+    function checkAnyTasks(taskList) {
+        return taskList.length === 0 ? false : true;
+    }
+ 
 
     return (
         <div className="App">
@@ -75,15 +84,15 @@ function App() {
                 <AddItemForm addTask={addTask} />
                 <div className="todo-tasks">
                     <h2 className="">Задачи к выполнению</h2>
-                    {unDone.map((task) => {
+                    {checkAnyTasks(unDone) ? unDone.map((task) => {
                         return <ToDoItem switchDone={switchDone} deleteTask={deleteTask} task={task} key={task.key} id={task.id} status={task.done} />
-                    })}
+                    }) : <h2>Нет задач для выполнения</h2>}
                 </div>
                 <div className="done-tasks">
                     <h2 className="">Выполненные задачи</h2>
-                    {done.map((task) => {
+                    {checkAnyTasks(done) ? done.map((task) => {
                         return <ToDoItem switchDone={switchDone} deleteTask={deleteTask} task={task} key={task.key} id={task.id} status={task.done} />
-                    })}
+                    }) : <h2>Нет выполненных задач</h2>}
                 </div>
             </Container>
         </div>

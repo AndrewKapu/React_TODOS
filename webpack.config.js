@@ -30,6 +30,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'main.bundle.js',
+        clean: true,
     },
     devtool: "inline-source-map",
 };
